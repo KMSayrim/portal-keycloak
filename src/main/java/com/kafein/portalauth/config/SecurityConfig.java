@@ -15,7 +15,7 @@ import java.util.List;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    @Value("${security.client-ids}")
+    @Value("${jwt.auth.converter.resource-id}")
     private List<String> clientIds;
 
     @Bean
