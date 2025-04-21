@@ -10,9 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthTestController {
 
-    @GetMapping("/check")
-    @PreAuthorize("hasRole('user')")
-    public ResponseEntity<String> checkToken() {
+    @GetMapping("/user")
+    @PreAuthorize("hasRole('client_user')")
+    public ResponseEntity<String> checkUser() {
+        return ResponseEntity.ok("Token geçerli ve yetki mevcut.");
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('client_admin')")
+    public ResponseEntity<String> checkAdmin() {
         return ResponseEntity.ok("Token geçerli ve yetki mevcut.");
     }
 }
